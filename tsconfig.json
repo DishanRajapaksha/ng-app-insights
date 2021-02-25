@@ -8,10 +8,10 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/appi/tsconfig.lib.json"
+      "path": "./projects/ng-app-insights/tsconfig.lib.json"
     },
     {
-      "path": "./projects/appi/tsconfig.spec.json"
+      "path": "./projects/ng-app-insights/tsconfig.spec.json"
     }
 ]
 }

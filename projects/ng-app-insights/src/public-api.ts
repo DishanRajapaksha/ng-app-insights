@@ -1,5 +1,5 @@
 /*
- * Public API Surface of appi
+ * Public API Surface of ng-app-insights
  */
 
 export * from './lib/appi.service';

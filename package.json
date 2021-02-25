@@ -1,5 +1,5 @@
 {
-  "name": "appi",
+  "name": "ng-app-insights",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -19,6 +19,8 @@
     "@angular/platform-browser": "10.0.2",
     "@angular/platform-browser-dynamic": "10.0.2",
     "@angular/router": "10.0.2",
+    "@microsoft/applicationinsights-core-js": "2.5.11",
+    "@microsoft/applicationinsights-web": "2.5.11",
     "rxjs": "6.6.0",
     "tslib": "2.0.0",
     "zone.js": "0.10.3"

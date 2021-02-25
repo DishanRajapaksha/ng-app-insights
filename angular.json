@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "appi": {
+    "ng-app-insights": {
       "projectType": "library",
-      "root": "projects/appi",
-      "sourceRoot": "projects/appi/src",
+      "root": "projects/ng-app-insights",
+      "sourceRoot": "projects/ng-app-insights/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/appi/tsconfig.lib.json",
-            "project": "projects/appi/ng-package.json"
+            "tsConfig": "projects/ng-app-insights/tsconfig.lib.json",
+            "project": "projects/ng-app-insights/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/appi/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ng-app-insights/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/appi/src/test.ts",
-            "tsConfig": "projects/appi/tsconfig.spec.json",
-            "karmaConfig": "projects/appi/karma.conf.js"
+            "main": "projects/ng-app-insights/src/test.ts",
+            "tsConfig": "projects/ng-app-insights/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-app-insights/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/appi/tsconfig.lib.json",
-              "projects/appi/tsconfig.spec.json"
+              "projects/ng-app-insights/tsconfig.lib.json",
+              "projects/ng-app-insights/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -43,5 +43,5 @@
         }
       }
     }},
-  "defaultProject": "appi"
+  "defaultProject": "ng-app-insights"
 }
