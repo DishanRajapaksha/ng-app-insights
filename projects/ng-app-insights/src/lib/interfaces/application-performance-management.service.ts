@@ -10,8 +10,11 @@ import {
   IPageViewTelemetry,
 } from '@microsoft/applicationinsights-web';
 import { ICustomProperties } from '@microsoft/applicationinsights-core-js';
-
-// TODO Need to think about the injection
+import { ApplicationInsightsService } from '../appi.service';
+@Injectable({
+  providedIn: 'root',
+  useClass: ApplicationInsightsService
+})
 export abstract class ApplicationPerformanceManagementService {
   abstract trackPageView(pageView?: IPageViewTelemetry): void;
 
