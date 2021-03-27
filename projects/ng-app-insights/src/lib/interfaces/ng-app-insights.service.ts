@@ -10,12 +10,13 @@ import {
   IPageViewTelemetry,
 } from '@microsoft/applicationinsights-web';
 import { ICustomProperties } from '@microsoft/applicationinsights-core-js';
-import { ApplicationInsightsService } from '../appi.service';
+import { NgAppInsightsService } from '../appi.service';
+
 @Injectable({
   providedIn: 'root',
-  useClass: ApplicationInsightsService
+  useClass: NgAppInsightsService
 })
-export abstract class ApplicationPerformanceManagementService {
+export abstract class INgAppInsightsService {
   abstract trackPageView(pageView?: IPageViewTelemetry): void;
 
   abstract startTrackPage(name: string): void;
@@ -62,4 +63,6 @@ export abstract class ApplicationPerformanceManagementService {
   abstract clearAuthenticatedUserContext(): void;
 
   abstract flush(): void;
+
+  abstract addCustomTelemetryInitializer(data: any): void;
 }

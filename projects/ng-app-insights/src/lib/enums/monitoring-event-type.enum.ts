@@ -1,0 +1,22 @@
+export enum MonitoringEventType {
+  AJAX = 1,
+  CheckBoxChange,
+  ComponentLoad,
+  DropDownChange,
+  Error,
+  Filtering,
+  KeyBoard,
+  Login,
+  MouseClick,
+  PageView,
+  Rule,
+  MouseWheelScroll,
+  MouseDrag,
+  PickDate,
+  FileChange,
+  StartTrackEvent,
+  StopTrackEvent,
+  Scroll,
+  HeaderCellChange,
+  Drop
+}

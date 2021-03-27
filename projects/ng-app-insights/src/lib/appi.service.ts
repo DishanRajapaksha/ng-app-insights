@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { ApplicationPerformanceManagementService } from './interfaces/application-performance-management.service';
+import { Inject, Injectable } from '@angular/core';
+import { INgAppInsightsService as INgAppInsightsService } from './interfaces/ng-app-insights.service';
 import {
   ApplicationInsights,
   IExceptionTelemetry,
@@ -12,42 +12,31 @@ import {
 } from '@microsoft/applicationinsights-web';
 import { NumberDictionary, StringDictionary } from './types/types';
 import { ICustomProperties } from '@microsoft/applicationinsights-core-js';
+import { NgAppInsightsConfiguration } from './types/ng-app-insights.config';
+import { NG_APP_INSIGHTS_CONFIG } from './constants';
 
 @Injectable()
-export class ApplicationInsightsService
-  implements ApplicationPerformanceManagementService {
+export class NgAppInsightsService implements INgAppInsightsService {
 
-  // TODO: get from outside
-  environment: any = {};
-  pagePostfix = 'Doc Import';
+  pagePostfix = '';
+  appInsights: ApplicationInsights;
 
-  appInsights = new ApplicationInsights({
-    config: this.environment.appInsightsConfig,
-  });
-
-  constructor(
+  constructor(@Inject(NG_APP_INSIGHTS_CONFIG) appInsightsConfig: NgAppInsightsConfiguration,
   ) {
-    this.initialise();
+    this.initialise(appInsightsConfig);
     this.addTelemetryInitializers();
   }
 
-  private initialise() {
+  private initialise(appInsightsConfig: NgAppInsightsConfiguration) {
+    this.appInsights = new ApplicationInsights({
+      config: appInsightsConfig,
+    });
     this.appInsights.loadAppInsights();
-    this.appInsights.context.application.ver = this.environment.version;
+    this.appInsights.context.application.ver = appInsightsConfig.applicationVersion;
+    this.pagePostfix = appInsightsConfig.pageViewPostfix;
   }
 
   private addTelemetryInitializers() {
-    /**
-     * Set current session details
-     */
-    // TODO: get from outside
-    const initialiseData = {};
-
-    this.appInsights?.addTelemetryInitializer((item) => {
-      if (item && item.data) {
-        item.data = {...item.data, ...initialiseData}
-      }
-    });
     /**
      * Add resolution to Page view traces
      */
@@ -98,16 +87,24 @@ export class ApplicationInsightsService
     });
   }
 
+  addCustomTelemetryInitializer(data: any): void {
+    this.appInsights?.addTelemetryInitializer((item) => {
+      if (item && item.data) {
+        item.data = { ...item.data, ...data }
+      }
+    });
+  }
+
   clearAuthenticatedUserContext(): void {
     try {
       this.appInsights.clearAuthenticatedUserContext();
-    } catch (e) {}
+    } catch (e) { }
   }
 
   flush(): void {
     try {
       this.appInsights.flush();
-    } catch (e) {}
+    } catch (e) { }
   }
 
   setAuthenticatedUserContext(
@@ -121,19 +118,20 @@ export class ApplicationInsightsService
         accountId,
         storeInCookie
       );
-    } catch (e) {}
+    } catch (e) { }
   }
 
   startTrackEvent(name: string): void {
     try {
+      console.log('startTrackEvent called'  );
       this.appInsights.startTrackEvent(name);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   startTrackPage(name: string): void {
     try {
       this.appInsights.startTrackPage(name);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   stopTrackEvent(
@@ -143,7 +141,7 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.stopTrackEvent(name, properties, measurements);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   stopTrackPage(
@@ -154,13 +152,13 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.stopTrackPage(name, url, customProperties, measurements);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackDependencyData(dependency: IDependencyTelemetry): void {
     try {
       this.appInsights.trackDependencyData(dependency);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackEvent(
@@ -169,13 +167,13 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.trackEvent(event, customProperties);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackException(exception: IExceptionTelemetry): void {
     try {
       this.appInsights.trackException(exception);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackMetric(
@@ -184,13 +182,13 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.trackMetric(metric, customProperties);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackPageView(pageView?: IPageViewTelemetry): void {
     try {
       this.appInsights.trackPageView(pageView);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackPageViewPerformance(
@@ -198,7 +196,7 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.trackPageViewPerformance(pageViewPerformance);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   trackTrace(
@@ -207,6 +205,6 @@ export class ApplicationInsightsService
   ): void {
     try {
       this.appInsights.trackTrace(trace, customProperties);
-    } catch (e) {}
+    } catch (e) { }
   }
 }
