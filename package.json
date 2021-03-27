@@ -1,6 +1,8 @@
 {
   "name": "ng-app-insights",
   "version": "1.0.0-beta.0",
+  "description": "Application Insights for Angular",
+  "homepage": "https://github.com/DishanRajapaksha/ng-app-insights.git",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -47,6 +49,7 @@
     "tslint": "6.1.2",
     "typescript": "3.9.6"
   },
+  "repository": "https://github.com/DishanRajapaksha/ng-app-insights.git",
   "contributors": [
     "Rishanthakumar Rasarathinam <rishanthakumar@gmail.com> (https://github.com/Rishanthakumar)",
     "Dishan Rajapaksha <hello@dishanrajapaksha.com> (https://github.com/DishanRajapaksha)"

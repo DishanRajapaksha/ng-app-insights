@@ -1,6 +1,8 @@
 {
   "name": "ng-app-insights",
   "version": "1.0.0-beta.0",
+  "description": "Application Insights for Angular",
+  "homepage": "https://github.com/DishanRajapaksha/ng-app-insights.git",
   "peerDependencies": {
     "@angular/common": "10.0.2",
     "@angular/core": "10.0.2",
@@ -11,6 +13,12 @@
     "@microsoft/applicationinsights-web": "2.5.11",
     "@microsoft/applicationinsights-core-js": "2.5.11"
   },
+  "keywords": [
+    "angular",
+    "microsoft",
+    "application insights"
+  ],
+  "repository": "https://github.com/DishanRajapaksha/ng-app-insights.git",
   "contributors": [
     "Rishanthakumar Rasarathinam <rishanthakumar@gmail.com> (https://github.com/Rishanthakumar)",
     "Dishan Rajapaksha <hello@dishanrajapaksha.com> (https://github.com/DishanRajapaksha)"
