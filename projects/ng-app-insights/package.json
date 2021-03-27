@@ -1,0 +1,19 @@
+{
+  "name": "ng-app-insights",
+  "version": "1.0.0-beta.0",
+  "peerDependencies": {
+    "@angular/common": "10.0.2",
+    "@angular/core": "10.0.2",
+    "rxjs": "6.6.0"
+  },
+  "dependencies": {
+    "tslib": "2.0.0",
+    "@microsoft/applicationinsights-web": "2.5.11",
+    "@microsoft/applicationinsights-core-js": "2.5.11"
+  },
+  "contributors": [
+    "Rishanthakumar Rasarathinam <rishanthakumar@gmail.com> (https://github.com/Rishanthakumar)",
+    "Dishan Rajapaksha <hello@dishanrajapaksha.com> (https://github.com/DishanRajapaksha)"
+  ],
+  "license": "(ISC) MIT"
+}

@@ -16,9 +16,9 @@
       "dom"
     ],
     "paths": {
-      "appi": [
-        "dist/appi/appi",
-        "dist/appi"
+      "ng-app-insights": [
+        "dist/ng-app-insights/ng-app-insights",
+        "dist/ng-app-insights"
       ]
     }
   }
