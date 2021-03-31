@@ -123,7 +123,6 @@ export class NgAppInsightsService implements INgAppInsightsService {
 
   startTrackEvent(name: string): void {
     try {
-      console.log('startTrackEvent called'  );
       this.appInsights.startTrackEvent(name);
     } catch (e) { }
   }

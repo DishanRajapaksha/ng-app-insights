@@ -17,7 +17,6 @@ export class EventService {
   }
 
   publishMonitoringEvent(monitoringEvent: MonitoringEvent) {
-    console.log('event service published' + monitoringEvent );
     this.publish(new Event(EventType.Monitoring, monitoringEvent));
   }
 
