@@ -1,0 +1,20 @@
+export enum CoreMonitoringEventType {
+  AJAX = 1,
+  CheckBoxChange,
+  ComponentLoad,
+  DropDownChange,
+  Error,
+  Filtering,
+  KeyBoard,
+  Login,
+  MouseClick,
+  PageView,
+  MouseWheelScroll,
+  MouseDrag,
+  PickDate,
+  FileChange,
+  StartTrackEvent,
+  StopTrackEvent,
+  Scroll,
+  DragAndDrop
+}

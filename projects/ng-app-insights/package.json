@@ -1,6 +1,6 @@
 {
   "name": "@ng-app-insights/ng-app-insights",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.3",
   "description": "Application Insights for Angular",
   "homepage": "https://github.com/DishanRajapaksha/ng-app-insights.git",
   "peerDependencies": {
