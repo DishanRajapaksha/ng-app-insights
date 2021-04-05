@@ -1,5 +1,3 @@
-import { EventType } from './event-type.enum';
-
 export class Event {
 
   type: string | number;

@@ -27,7 +27,7 @@ export class NgAppInsightsService implements INgAppInsightsService {
     this.addTelemetryInitializers();
   }
 
-  private initialise(appInsightsConfig: NgAppInsightsConfiguration) {
+  private initialise(appInsightsConfig: NgAppInsightsConfiguration): void {
     this.appInsights = new ApplicationInsights({
       config: appInsightsConfig,
     });
@@ -36,7 +36,7 @@ export class NgAppInsightsService implements INgAppInsightsService {
     this.pagePostfix = appInsightsConfig.pageViewPostfix;
   }
 
-  private addTelemetryInitializers() {
+  private addTelemetryInitializers(): void {
     /**
      * Add resolution to Page view traces
      */
@@ -90,7 +90,7 @@ export class NgAppInsightsService implements INgAppInsightsService {
   addCustomTelemetryInitializer(data: any): void {
     this.appInsights?.addTelemetryInitializer((item) => {
       if (item && item.data) {
-        item.data = { ...item.data, ...data }
+        item.data = { ...item.data, ...data };
       }
     });
   }

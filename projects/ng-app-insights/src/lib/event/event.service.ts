@@ -12,11 +12,11 @@ import { MonitoringEvent } from '../models/monitoring-event.model';
 export class EventService {
   private readonly handler: Subject<Event> = new Subject<Event>();
 
-  publish<T>(event: Event) {
+  publish<T>(event: Event): void {
     this.handler.next(event);
   }
 
-  publishMonitoringEvent(monitoringEvent: MonitoringEvent) {
+  publishMonitoringEvent(monitoringEvent: MonitoringEvent): void {
     this.publish(new Event(EventType.Monitoring, monitoringEvent));
   }
 
@@ -24,8 +24,7 @@ export class EventService {
     return this.handler
       .asObservable()
       .pipe(filter((event) => {
-        console.log(event);
-       return event.type === type
+        return event.type === type;
       }));
   }
 }

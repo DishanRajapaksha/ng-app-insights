@@ -10,3 +10,4 @@ export type NgAppInsightsConfiguration = {
     instrumentationKey: string,
     sessionExpirationMs: number,
 };
+

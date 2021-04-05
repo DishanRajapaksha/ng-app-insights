@@ -1,4 +1,4 @@
-export function convertMapToDictionary(map?: Map<string, string | number>) {
+export function convertMapToDictionary(map?: Map<string, string | number>): { [p: string]: any } {
   const values: { [key: string]: any } = {};
 
   map?.forEach((value, key) => {
